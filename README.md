@@ -14,7 +14,7 @@ A chatbot is a computer program which conducts a conversation via auditory or te
 <br /> Go to Add Products ->Messenger 
 <br /> In `Messenger` -> go to webhooks
 
-## SetUp Heroku Account 
+## Setup Heroku Account 
 <br /> It will be used in Callback Url of messenger webhook
 <br /> SignUp/login
 <br /> Create app
@@ -33,6 +33,6 @@ A chatbot is a computer program which conducts a conversation via auditory or te
 <br /> Now generate Token in Facebook by selecting the page
 <br /> In webhook , select the same page and subscribe it
 
-
+## 
 <br /> 
 
