@@ -47,4 +47,16 @@ A chatbot is a computer program which conducts a conversation via auditory or te
 ## First Reply
 <br /> Now after setting this much open `facebook.com/page_on_which_it_was_subscribed`
 <br /> Message something and a reply will come 
-<br />
+
+## Setting Get_Started Button
+><br /> Make the following Curl Request either through `git bash` or with npm package fb-get-started-button:
+<br />curl -X POST -H "Content-Type: application/json" -d '{
+<br />"setting_type":"call_to_actions",
+<br />"thread_state":"new_thread",
+<br />"call_to_actions":[
+ <br />{
+<br />  "payload":"first hand shake"
+<br /> }
+<br />]
+<br />}' "https://graph.facebook.com/v2.6/1491142357630044/thread_settings?access_token=PAGE_Access_token"
+
