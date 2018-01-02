@@ -62,19 +62,18 @@ A chatbot is a computer program which conducts a conversation via auditory or te
 
 
 ## JSON for Image sending :
-> `<br />
-<br />$jsonData= "{
-		<br />'recipient':{
-	    <br />'id': $userID
-	  <br />},
-	  <br />'message':{
-<br />
-	  	<br />'attachment' : {
-	  		<br />'type' : 'image' ,
-	  	<br />'payload' : {
-			<br />'url': 'https://www.google.co.in/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png'
-	  	<br />}
-	    <br />
-	  <br />}
-	<br />}	
-	<br />}" ; `
+```json
+        $jsonData= "{
+        'recipient':{
+	        'id': $userID
+		},
+	  'message':{
+	  	'attachment' : {
+	  		'type' : 'image' ,
+	  	'payload' : {
+			'url': 'https://www.google.co.in/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png'
+	  	}
+	  }
+	}	
+	}" ;```
+	
