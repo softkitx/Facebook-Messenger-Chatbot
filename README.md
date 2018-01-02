@@ -49,7 +49,7 @@ A chatbot is a computer program which conducts a conversation via auditory or te
 <br /> Message something and a reply will come 
 
 ## Setting Get_Started Button
-><br /> Make the following Curl Request either through `git bash` or with npm package fb-get-started-button:
+Make the following Curl Request either through `git bash` or with npm package fb-get-started-button:
 ```json
 curl -X POST -H "Content-Type: application/json" -d '{
 "setting_type":"call_to_actions",
@@ -61,19 +61,4 @@ curl -X POST -H "Content-Type: application/json" -d '{
 ]
 }' "https://graph.facebook.com/v2.6/1491142357630044/thread_settings?access_token=<PAGE_ACCCESS_TOKEN>"```
 
-## JSON for Image sending :
-```json
-        $jsonData= "{
-        'recipient':{
-	        'id': $userID
-		},
-	  'message':{
-	  	'attachment' : {
-	  		'type' : 'image' ,
-	  	'payload' : {
-			'url': 'https://www.google.co.in/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png'
-	  	}
-	  }
-	}	
-	}" ;```
-	
+<br />
