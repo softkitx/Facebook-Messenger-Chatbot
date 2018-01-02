@@ -59,6 +59,27 @@ curl -X POST -H "Content-Type: application/json" -d '{
   "payload":"first hand shake"
  }
 ]
-}' "https://graph.facebook.com/v2.6/1491142357630044/thread_settings?access_token=<PAGE_ACCCESS_TOKEN>"```
+}' "https://graph.facebook.com/v2.6/1491142357630044/thread_settings?access_token=<PAGE_ACCCESS_TOKEN>"
+```
 
 <br />
+
+## JSON for Image sending :
+Following is the JSON , if u want to send an `image` in a reply :
+```json
+$jsonData= "{
+     'recipient':{
+	        'id': $userID
+		    },
+	    'message':{
+	  	     'attachment' : {
+	  		          'type' : 'image' ,
+	  	           'payload' : {
+			                  'url': 'https://www.google.co.in/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png'
+	  	             }
+	            }
+	}   	
+	}" ;
+ ```
+	
+
