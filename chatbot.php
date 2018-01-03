@@ -1,5 +1,6 @@
 <?php
 
+//if u change the page , access token will be differnet. Plz make sure of it
 $accessToken = "EAAOUo3xLatgBAIz6I6rUGyknetB1uOsCgfIQQN9Oi3nd0aouI21kKZCknXtZBrZB6FcvSxhzWZBF2vgM0XZAeb2vdYHByG3wcTTSogqiJUYzbV33CGIiCKOAol88Ah0vmyJP1BJPerc8QBDP8vfzSO5PxgZBZB73xkUfRzorxW7ZCUYE6Q8GA4D2" ;
 
 
@@ -48,7 +49,7 @@ if(isset($messagingArray['message']))
   			"sender_action":"typing_on"
 		}';
 
-		sendRawResponse($senderActionResponse, $accessToken, $userID) ;
+		sendRawResponse($senderActionResponse, $accessToken, $userID ) ;
 
 		if($sentMessage =='test') // the button will be send as a response when user sent "test" message. I have set this confined for this bot
 		{
