@@ -81,5 +81,13 @@ $jsonData= "{
 	}   	
 	}" ;
  ```
+ ## To update Webhook 
+ 
+ <br /> Go to the app on facebook
+ <br />In the products section on `LHS` select `webhook`
+<br /> Now click on Edit Subscriptions
+<br /> Add a new CallbackURL or updated CallbackUrl and Token . Save & verify
+<br />`Now u r done with it. NO need of deleting the app and creating it again`
+
 	
 
