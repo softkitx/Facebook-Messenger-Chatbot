@@ -39,42 +39,54 @@ if(isset($messagingArray['message']))
 	{
 		die();
 	}
-	else if($sentMessage =='test') // the button will be send as a response when user sent "test" message. I have set this confined for this bot
+	else
 	{
-		$response =  '{
-		  "recipient":{
-		    "id": "'.$userID.'" 
-		  },
-		  "message":{
-		    "attachment":{
-		      "type":"template",
-		      "payload":{
-		        "template_type":"button",
-		        "text":"Hi, there ! I\'m a minified version of a Bot . ",
-		        "buttons":[
-		          {
-		            "type":"web_url",
-		            "url":"https://www.linkedin.com/in/vidit2709",
-		            "title":"Visit Developers LinkedIn"
-		          },
-		          {
-		            "type":"web_url",
-		            "url":"https://github.com/vidit-agarwal",
-		            "title":"Visit Developers github"
-		          },
-		          {
-		            "type":"web_url",
-		            "url":"https://m.facebook.com/vidit.agarwal.79?ref=bookmarks",
-		            "title":"Visit Developers Facebook"
-		          }
-		          
-		        ]
-		      }
-		    }
-		  }
+		$senderActionResponse='{
+			"recipient":{
+    				"id":"'.$userID.'"
+  			},
+  			"sender_action":"typing_on"
 		}';
 
-		sendRawResponse($response, $accessToken, $userID);
+		sendRawResponse($senderActionResponse, $accessToken, $userID) ;
+
+		if($sentMessage =='test') // the button will be send as a response when user sent "test" message. I have set this confined for this bot
+		{
+			$response =  '{
+			  "recipient":{
+			    "id": "'.$userID.'" 
+			  },
+			  "message":{
+			    "attachment":{
+			      "type":"template",
+			      "payload":{
+			        "template_type":"button",
+			        "text":"Hi, there ! I\'m a minified version of a Bot . ",
+			        "buttons":[
+			          {
+			            "type":"web_url",
+			            "url":"https://www.linkedin.com/in/vidit2709",
+			            "title":"Visit Developers LinkedIn"
+			          },
+			          {
+			            "type":"web_url",
+			            "url":"https://github.com/vidit-agarwal",
+			            "title":"Visit Developers github"
+			          },
+			          {
+			            "type":"web_url",
+			            "url":"https://m.facebook.com/vidit.agarwal.79?ref=bookmarks",
+			            "title":"Visit Developers Facebook"
+			          }
+			          
+			        ]
+			      }
+			    }
+			  }
+			}';
+
+			sendRawResponse($response, $accessToken, $userID);
+		}
 	}
 }
 
