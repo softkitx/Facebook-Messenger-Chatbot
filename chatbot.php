@@ -25,11 +25,50 @@ if(isset($messagingArray['postback']))
 {
 	if($messagingArray['postback']['payload']=="GET_STARTED")
 	{
-		sendTextMessage("hello, there", $userID,$accessToken) ;
+		sendTextMessage("hello, there", $accessToken, $userID) ;
 		die() ;
 	}
 }
-$message = $input['entry'][0]['messaging'][0]['message']['text'] ;
+
+
+if(isset($messagingArray['message']))
+{
+	//herr we are delaing with only text , if user sends sticker then it will not respond 
+	$sentMessage = $messagingArray['message']['text'] ;
+	if(isset($messagingArray['message']['is_echo']))
+	{
+		die();
+	}
+	else if($sentMessage =='test') // the button will be send as a response when user sent "test" message. I have set this confined for this bot
+	{
+		$response =  '{
+		  "recipient":{
+		    "id": "'.$userID.'" 
+		  },
+		  "message":{
+		    "attachment":{
+		      "type":"template",
+		      "payload":{
+		        "template_type":"button",
+		        "text":"Hi, there ! I\'m a minified version of a Bot . ",
+		        "buttons":[
+		          {
+		            "type":"web_url",
+		            "url":"https://www.google.com",
+		            "title":"Visit Messenger"
+		          }
+		          
+		        ]
+		      }
+		    }
+		  }
+		}';
+
+		sendRawResponse($response, $accessToken, $userID);
+	}
+}
+
+//$message = $input['entry'][0]['messaging'][0]['message']['text'] ;
 /*
 $reply = "I, dont understnad . Asl me to tell a joke !" ;
 if(preg_match('/(send|text|tell|.*?)(.*?)joke/', $message))
@@ -42,7 +81,7 @@ if(preg_match('/(send|text|tell|.*?)(.*?)joke/', $message))
 
 }
 */
-function sendTextMessage($message,$userID,$accessToken)
+function sendTextMessage($message, $accessToken, $userID)
 {
 	$url ="https://graph.facebook.com/v2.6/me/messages?access_token=$accessToken";
 
@@ -76,7 +115,38 @@ function sendTextMessage($message,$userID,$accessToken)
 	var_dump($errors);
 	var_dump($response) ;
 
+	curl_close($ch) ;
 
+}
+
+function sendRawResponse($rawResponse, $accessToken, $userID)
+{
+	$url ="https://graph.facebook.com/v2.6/me/messages?access_token=$accessToken";
+
+
+
+
+	$ch =  curl_init();
+	curl_setopt($ch, CURLOPT_URL, $url);
+	curl_setopt($ch, CURLOPT_POST, true) ;
+	curl_setopt($ch, CURLOPT_POSTFIELDS, $rawResponse) ;
+	curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/json']) ;
+	curl_setopt($ch, CURLOPT_FOLLOWLOCATION, TRUE);
+	curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false) ;
+
+
+
+	
+		curl_exec($ch) ;
+	
+
+	$errors = curl_error($ch) ;
+	$response = curl_getinfo($ch,CURLINFO_HTTP_CODE) ;
+
+	var_dump($errors);
+	var_dump($response) ;
+
+	curl_close($ch) ;
 
 }
 
