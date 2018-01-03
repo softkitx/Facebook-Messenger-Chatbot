@@ -89,5 +89,15 @@ $jsonData= "{
 <br /> Add a new CallbackURL or updated CallbackUrl and Token . Save & verify
 <br />`Now u r done with it. NO need of deleting the app and creating it again`
 
+## Json for Sender Acton Response
+```json
+$senderActionResponse='{
+			"recipient":{
+    				"id":"'.$userID.'"
+  			},
+  			"sender_action":"typing_on"
+		}';
+```
+
 	
 
