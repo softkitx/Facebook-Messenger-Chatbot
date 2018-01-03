@@ -48,7 +48,7 @@ A chatbot is a computer program which conducts a conversation via auditory or te
 <br /> Now after setting this much open `facebook.com/page_on_which_it_was_subscribed`
 <br /> Message something and a reply will come 
 
-## Setting Get_Started Button
+## JSON for setting Get_Started Button
 Make the following Curl Request either through `git bash` or with npm package fb-get-started-button:
 ```json
 curl -X POST -H "Content-Type: application/json" -d '{
@@ -89,7 +89,7 @@ $jsonData= "{
 <br /> Add a new CallbackURL or updated CallbackUrl and Token . Save & verify
 <br />`Now u r done with it. NO need of deleting the app and creating it again`
 
-## Json for Sender Acton Response
+## JSON for Sender Acton Response
 ```json
 $senderActionResponse='{
 			"recipient":{
@@ -97,6 +97,41 @@ $senderActionResponse='{
   			},
   			"sender_action":"typing_on"
 		}';
+```
+## JSON for sending Button in Response
+```json
+$response =  '{
+			  "recipient":{
+			    "id": "'.$userID.'" 
+			  },
+			  "message":{
+			    "attachment":{
+			      "type":"template",
+			      "payload":{
+			        "template_type":"button",
+			        "text":"Hi, there ! I\'m a minified version of a Bot . ",
+			        "buttons":[
+			          {
+			            "type":"web_url",
+			            "url":"https://www.linkedin.com/in/vidit2709",
+			            "title":"Visit Developers LinkedIn"
+			          },
+			          {
+			            "type":"web_url",
+			            "url":"https://github.com/vidit-agarwal",
+			            "title":"Visit Developers github"
+			          },
+			          {
+			            "type":"web_url",
+			            "url":"https://m.facebook.com/vidit.agarwal.79?ref=bookmarks",
+			            "title":"Visit Developers Facebook"
+			          }
+			          
+			        ]
+			      }
+			    }
+			  }
+			}';
 ```
 
 	
