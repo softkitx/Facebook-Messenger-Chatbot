@@ -54,8 +54,18 @@ if(isset($messagingArray['message']))
 		        "buttons":[
 		          {
 		            "type":"web_url",
-		            "url":"https://www.google.com",
-		            "title":"Visit Messenger"
+		            "url":"https://www.linkedin.com/in/vidit2709",
+		            "title":"Visit Developers LinkedIn"
+		          },
+		          {
+		            "type":"web_url",
+		            "url":"https://github.com/vidit-agarwal",
+		            "title":"Visit Developers github"
+		          },
+		          {
+		            "type":"web_url",
+		            "url":"https://m.facebook.com/vidit.agarwal.79?ref=bookmarks",
+		            "title":"Visit Developers Facebook"
 		          }
 		          
 		        ]
